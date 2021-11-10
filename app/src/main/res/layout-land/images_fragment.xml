@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -28,7 +27,7 @@
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/margin_10dp"
                     android:weightSum="2"
-                    android:layout_gravity="center">
+                    >
 
                     <ImageView
                         android:id="@+id/image_1"
@@ -55,7 +54,7 @@
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/margin_10dp"
                     android:weightSum="2"
-                    android:layout_gravity="center">
+                    >
 
                     <ImageView
                         android:id="@+id/image_3"
@@ -82,7 +81,7 @@
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/margin_10dp"
                     android:weightSum="2"
-                    android:layout_gravity="center">
+                    >
 
                     <ImageView
                         android:id="@+id/image_5"
@@ -109,7 +108,7 @@
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/margin_10dp"
                     android:weightSum="2"
-                    android:layout_gravity="center">
+                    >
 
                     <ImageView
                         android:id="@+id/image_7"
@@ -136,7 +135,7 @@
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/margin_10dp"
                     android:weightSum="2"
-                    android:layout_gravity="center">
+                    >
 
                     <ImageView
                         android:id="@+id/image_9"
@@ -162,8 +161,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_margin="@dimen/margin_10dp"
-                    android:weightSum="2"
-                    android:layout_gravity="center">
+                    android:weightSum="2">
 
                     <ImageView
                         android:id="@+id/image_11"
