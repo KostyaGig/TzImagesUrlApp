@@ -18,6 +18,10 @@ Success state <br/>
 
 <img src="https://firebasestorage.googleapis.com/v0/b/fir-testapp-b6eb1.appspot.com/o/photo_2021-11-10_15-52-17.jpg?alt=media&token=d4754801-a6f2-4e3d-92ce-482e2c051c31" width="300" height="550"/>
 
+Landscape<br/>
+
+<img src="https://firebasestorage.googleapis.com/v0/b/fir-testapp-b6eb1.appspot.com/o/photo_2021-11-10_16-43-31.jpg?alt=media&token=4d9feb76-8a45-47de-8d49-dece85eca38a" width="900" height="550"/>
+
 Failure state(No connection) <br/>
 <img src="https://firebasestorage.googleapis.com/v0/b/fir-testapp-b6eb1.appspot.com/o/photo_2021-11-10_15-52-16.jpg?alt=media&token=f2814587-693f-4b9f-94cc-d34b5352155b" width="300" height="550"/>
 
@@ -27,3 +31,6 @@ Failure state(No connection) <br/>
 <img src="https://firebasestorage.googleapis.com/v0/b/fir-testapp-b6eb1.appspot.com/o/photo_2021-11-10_15-52-21.jpg?alt=media&token=d59bcb27-16c4-44a4-ad0f-03967ad5be47" width="300" height="550"/>
 
 
+Change launcher icon app <br/>
+
+<img src="https://firebasestorage.googleapis.com/v0/b/fir-testapp-b6eb1.appspot.com/o/photo_2021-11-10_16-54-30.jpg?alt=media&token=aad982ba-1d37-4417-84f3-2869a094454d" width="300" height="550"/>
