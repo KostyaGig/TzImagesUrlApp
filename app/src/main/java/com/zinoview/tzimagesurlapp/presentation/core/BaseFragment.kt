@@ -11,4 +11,8 @@ abstract class BaseFragment(@LayoutRes layoutResId: Int) : Fragment(layoutResId)
     }
 
     abstract fun navigateToBack()
+
+    protected companion object {
+        const val IMAGE_URL_KEY = "image_url"
+    }
 }

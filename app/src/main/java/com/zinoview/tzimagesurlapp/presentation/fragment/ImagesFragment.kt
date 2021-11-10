@@ -3,7 +3,9 @@ package com.zinoview.tzimagesurlapp.presentation.fragment
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.zinoview.tzimagesurlapp.R
+import com.zinoview.tzimagesurlapp.core.ResourceProvider
 import com.zinoview.tzimagesurlapp.presentation.navigation.ExitActivity
 import com.zinoview.tzimagesurlapp.presentation.core.BaseFragment
 
@@ -25,9 +27,9 @@ class ImagesFragment : BaseFragment(R.layout.images_fragment) {
         val twelfthImage = view.findViewById<ImageView>(R.id.image_12)
 
         val errorTextView = view.findViewById<TextView>(R.id.error_tv)
-        val progressBar = view.findViewById<ProgressBar>(R.id.pb)
         val imagesContainer = view.findViewById<LinearLayout>(R.id.images_container)
-        val retryBtn = view.findViewById<Button>(R.id.retry_btn)
+
+        val swipeRefresh = view.findViewById<SwipeRefreshLayout>(R.id.swipe_refresh)
 
         val images = listOf(
             firstImage,
@@ -47,14 +49,77 @@ class ImagesFragment : BaseFragment(R.layout.images_fragment) {
         imagesViewModel.images()
 
         imagesViewModel.observe(this) { uiImageState ->
-            uiImageState.handleState(images,errorTextView,progressBar,imagesContainer,retryBtn)
+            uiImageState.handleState(images,errorTextView,swipeRefresh,imagesContainer)
         }
 
-        retryBtn.setOnClickListener {
+
+        swipeRefresh.setOnRefreshListener {
             imagesViewModel.images()
+        }
+
+        val resourceProvider = ResourceProvider.Base(requireContext())
+        firstImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_1))
+        }
+
+        secondImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_2))
+        }
+
+        thirdImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_3))
+        }
+
+        fourthImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_4))
+        }
+
+        fifthImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_5))
+        }
+
+        sixthImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_6))
+        }
+
+        seventhImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_7))
+        }
+
+        eighthImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_8))
+        }
+
+        ninthImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_9))
+        }
+
+        tenthImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_10))
+        }
+
+        eleventhImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_11))
+        }
+
+        twelfthImage.setOnClickListener {
+            navigateTo(resourceProvider.string(R.string.image_12))
         }
     }
 
     override fun navigateToBack()
         = (requireActivity() as ExitActivity).exit()
+
+    private fun navigateTo(imageUrl: String) {
+        val detailImageFragment = DetailImageFragment()
+        detailImageFragment.arguments = Bundle().apply {
+            putString(IMAGE_URL_KEY,imageUrl)
+        }
+        requireActivity()
+            .supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container,detailImageFragment)
+            .commit()
+    }
 }
+

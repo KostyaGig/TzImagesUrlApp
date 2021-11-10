@@ -2,6 +2,7 @@ package com.zinoview.tzimagesurlapp.presentation.state
 
 import android.view.View
 import android.widget.*
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.squareup.picasso.Picasso
 
 
@@ -9,9 +10,8 @@ sealed class UiImageState {
     abstract fun handleState(
         images: List<ImageView>,
         errorTextView: TextView,
-        progressBar: ProgressBar,
-        imagesContainer: LinearLayout,
-        retryBtn: Button
+        swipeRefresh: SwipeRefreshLayout,
+        imagesContainer: LinearLayout
     )
 
 
@@ -20,15 +20,12 @@ sealed class UiImageState {
         override fun handleState(
             images: List<ImageView>,
             errorTextView: TextView,
-            progressBar: ProgressBar,
-            imagesContainer: LinearLayout,
-            retryBtn: Button
+            swipeRefresh: SwipeRefreshLayout,
+            imagesContainer: LinearLayout
         )  {
             imagesContainer.visibility = View.GONE
             errorTextView.visibility = View.GONE
-            retryBtn.visibility = View.GONE
-            progressBar.visibility = View.VISIBLE
-
+            swipeRefresh.isRefreshing = true
         }
     }
 
@@ -39,13 +36,12 @@ sealed class UiImageState {
         override fun handleState(
             images: List<ImageView>,
             errorTextView: TextView,
-            progressBar: ProgressBar,
-            imagesContainer: LinearLayout,
-            retryBtn: Button
+            swipeRefresh: SwipeRefreshLayout,
+            imagesContainer: LinearLayout
         ) {
-            progressBar.visibility = View.GONE
+            swipeRefresh.isRefreshing = false
+            swipeRefresh.isEnabled = false
             errorTextView.visibility = View.GONE
-            retryBtn.visibility = View.GONE
 
             for (i in images.indices) {
                 Picasso.get().load(imagesUrl[i]).into(images[i])
@@ -62,13 +58,12 @@ sealed class UiImageState {
         override fun handleState(
             images: List<ImageView>,
             errorTextView: TextView,
-            progressBar: ProgressBar,
-            imagesContainer: LinearLayout,
-            retryBtn: Button
+            swipeRefresh: SwipeRefreshLayout,
+            imagesContainer: LinearLayout
         ) {
-            progressBar.visibility = View.GONE
+            swipeRefresh.isRefreshing = false
+            swipeRefresh.isEnabled = true
             imagesContainer.visibility = View.GONE
-            retryBtn.visibility = View.VISIBLE
             errorTextView.text = message
             errorTextView.visibility = View.VISIBLE
         }
